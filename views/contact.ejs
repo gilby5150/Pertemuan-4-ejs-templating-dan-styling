@@ -12,7 +12,7 @@
 </html> -->
 <html>
 <head>
-  <title>Express HTML</title>
+  <title><%= title %> </title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
@@ -37,7 +37,19 @@
 <body>
     <div class="jumbotron"  style="padding:40px;">
       <h1>Contact Page</h1>
-      <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <p>Contact List :</p>
+      <% if (cont.length < 1) { %>
+       <p>Contact data is empty</p>
+      <% } else{ %>
+        <% cont.map((conts)=>{ %>
+        <ul> 
+          <li>
+              Name : <%= conts.name%><br>
+              Email : <%= conts.email%>
+          </li><br>
+        </ul>
+        <% }) %>
+        <% } %> 
       <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
     </div>
   </div>

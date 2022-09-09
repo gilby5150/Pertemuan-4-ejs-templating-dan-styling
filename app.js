@@ -8,11 +8,29 @@ app.set('view engine','ejs');
 
 // URL Default
 app.get('/',(req,res)=>{
-    res.render('index',{name:"GILBY"});
+    res.render('index',{name:"GILBY",title:"WebServer EJS"});
 });
 // URL contact
 app.get('/contact',(req,res)=>{
-    res.render('contact');
+    cont =[
+        {
+            name:"GILBY",
+            email:'gilby5150@gmail.com'
+        },
+        {
+            name:"asep",
+            email:'asep@gmail.com'
+        },
+        {
+            name:"asep hernandez",
+            email:'hernandez@gmail.com'
+        },
+    ]
+    res.render('contact'
+    ,{
+        title: 'WebServer EJS',
+        cont,
+    });
 })
 // URL About
 app.get('/about',(req,res)=>{
