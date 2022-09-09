@@ -1,57 +1,26 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-</head>
-<body>
-    <h1>This is contact page</h1>
-</body>
-</html> -->
-<html>
-<head>
-  <title><%= title %> </title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-  <nav>
-    <div  class="navbar navbar-inverse navbar-static-top" style="margin: 0">
-      <a class="navbar-brand" href="/">Express HTML</a>
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/about">About</a>
-        </li>
-        <li  class="active">
-          <a href="/contact">contact</a>
-        </li>
-      </ul>
-    
-  </nav>
-</head>
-<body>
-    <div class="jumbotron"  style="padding:40px;">
-      <h1>Contact Page</h1>
-      <p>Contact List :</p>
+<div class="jumbotron"  style="padding:40px;">
+  <h1>This is Contact Page</h1>
+  <p>Contact List :</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
       <% if (cont.length < 1) { %>
-       <p>Contact data is empty</p>
-      <% } else{ %>
-        <% cont.map((conts)=>{ %>
-        <ul> 
-          <li>
-              Name : <%= conts.name%><br>
-              Email : <%= conts.email%>
-          </li><br>
-        </ul>
-        <% }) %>
-        <% } %> 
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-    </div>
-  </div>
-</body>
-</html>
+        <p>Contact data is empty</p>
+       <% } else{ %>
+        <% cont.map((conts,index)=>{ %>
+      <tr>
+        <th scope="row"><%= index +1 %> </th>
+        <td><%= conts.name%></td>
+        <td><%= conts.email%></td>
+      </tr>
+      <% }) %>
+      <% } %>
+    </tbody>
+  </table>
+</div>
